@@ -8,6 +8,7 @@ import {
 
 import { User } from './schemas/User';
 import { Product } from './schemas/Products';
+import { ProductImage } from './schemas/ProductImages';
 
 const databaseUrl =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits-tutorial';
@@ -41,6 +42,7 @@ export default withAuth({
   lists: createSchema({
     User,
     Product,
+    ProductImage,
   }),
   ui: {
     isAccessAllowed: ({ session }) => {
