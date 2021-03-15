@@ -1,5 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
+import Product from './Product';
 
 const ProductsListStyles = styled.div`
   display: grid;
@@ -28,14 +29,11 @@ export default function Products() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  // console.log('woo party');
-  // console.log('more things here');
-
   return (
     <div>
       <ProductsListStyles>
         {data.allProducts.map((product) => (
-          <p key={product.id}>{`${product.name} ${product.description}`}</p>
+          <Product key={product.id} product={product} />
         ))}
       </ProductsListStyles>
       <p>Products</p>
